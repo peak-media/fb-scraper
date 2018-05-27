@@ -22,7 +22,7 @@ console.log('name, id, message, created_time, link, type, status_type, from_id, 
 loadPreviousPage(process.argv[2], function next(page) {
   page.data.map(function (post) {
     var { name, id, message, created_time, link, type, status_type, from } = post;
-    console.log(`"${ name }", "${ id }", "${ message }", "${ created_time }", "${ link }", "${ type }", "${ status_type }", "${ from.id }", "${ from.name }"`);
+    console.log(`"${ name }", "${ id }", "${ message.replace(/"/, "\"") }", "${ created_time }", "${ link }", "${ type }", "${ status_type }", "${ from.id }", "${ from.name }"`);
   });
 
   if (page.paging.next) {
